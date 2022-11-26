@@ -29,7 +29,7 @@ app.use("/animals", AnimalRouter)
 // routes
 //-------------------------------------------
 app.get('/', (req,res) => {
-    res.send(`<h1>get working in main server</h1>`)
+    res.redirect("/animals")
 })
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
