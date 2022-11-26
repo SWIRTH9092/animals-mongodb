@@ -17,6 +17,9 @@ app.use(morgan("tiny")) //logging
 app.use(methodOverride("_method")) // override for put and delete requests from forms
 app.use(express.urlencoded({extended: true})) // parse urlencoded request
 
+app.get('/', (req,res) => {
+    res.send(`<h1>get working in main server</h1>`)
+})
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
