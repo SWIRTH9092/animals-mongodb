@@ -4,6 +4,8 @@
 <body>
     <%- include("../partials/header.ejs", {title: "Animal List"}) %>
     <main>
+        <a href="/animals/new">
+            <button>Create New Animal</button>
         <div>
             <% for (animal of animals) { %> 
             <article>
