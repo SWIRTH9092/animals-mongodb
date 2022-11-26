@@ -24,4 +24,4 @@ const Animal = model("Animal", animalsSchema)
 //  Export the connection
 //----------------------------------------
 
-module.exports = mongoose
+module.exports = Animal
