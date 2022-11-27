@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("../partials/head.ejs", {title: "Species"}) %>
+    <%- include("../partials/head.ejs", {title: "Animal Stats"}) %>
 
     <body>
-        <%- include("../partials/header.ejs", {title: "Species"}) %>
+        <%- include("../partials/header.ejs", {title: "Animal Stats"}) %>
         <main>
             <div>
                 <article>
-                    <h2>Species: <%=animal.species %> </h2>
-                    <h3>Extinct: <%=animal.extinct ? "Yes" : "No"%> </h3>
-                    <h3>Found Where: <%=animal.location %> </h3>
-                    <h3>Life Expectancy: <%=parseInt(animal.lifeExpectancy)%></h3>
-                    <a href="/animals/<%= animal._id %>/edit"><button>Edit Animal</button></a>
+                    <h2 class="showstats-h2"><%=animal.species %> </h2>
+                    <h3 class="showstats-h3">Extinct: <%=animal.extinct ? "Yes" : "No"%> </h3>
+                    <h3 class="showstats-h3">Found Where: <%=animal.location %> </h3>
+                    <h3 class="showstats-h3">Life Expectancy: <%=parseInt(animal.lifeExpectancy)%></h3>
+                    <a href="/animals/<%= animal._id %>/edit"><button class="statseditbutton">Edit Animal</button></a>
                     <form action="/animals/<%= animal._id %>?_method=DELETE" method="POST">
                         <input type = "submit" value="Delete Animal"/>
                     </form>
-                    <a href="/animals/"><button>Back to Animal List</button></a>
+                    <!-- <a href="/animals/"><button>Back to Animal List</button></a> -->
                 </article>
             </div>
         </main> 

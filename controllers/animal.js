@@ -65,7 +65,7 @@ router.put ("/:id", (req, res) => {
     // update the animal
     Animal.findByIdAndUpdate(id, req.body, {new: true}, (err, animal)  => {
         // redirect use back to main page when animal
-        res.redirect("/animals")
+        res.redirect(`/animals/${id}`)
     })
 })
 

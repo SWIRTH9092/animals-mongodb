@@ -31,3 +31,19 @@ li {
     padding: 0 1rem 0 2rem;
     display: inline;
 }
+
+.showstats-h2 { 
+    margin-top: 5rem;
+    text-align: center;
+    color: #9b4dca;  
+}
+
+.showstats-h3 {
+   margin:0 33% 0 33%;
+   text-align: left;
+   color:#9b4dca;   
+}
+
+.statseditbutton {
+    margin: 3rem 0 2rem 0;
+}
