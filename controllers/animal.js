@@ -69,6 +69,18 @@ router.put ("/:id", (req, res) => {
     })
 })
 
+// delete route - the destroyer
+router.delete("/:id", (req, res) => {
+    //get the id from the params
+    const id = req.params.id
+
+    // delete the animal
+    Animal.findByIdAndRemove(id, (err, animal) => {
+        // redirect user back to index page
+        res.redirect("/animals")
+    })
+})
+
 //  get a show route
 router.get("/:id", (req, res) => {
     // get the id from the params
