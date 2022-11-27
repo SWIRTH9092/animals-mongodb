@@ -10,6 +10,19 @@ const Animal = require("../models/animal")
 //-------------------------------------------
 
 const router = express.Router()  // router will have all routes attached to it.
+//-------------------------------------------
+// Router Middleware
+//-------------------------------------------
+// Authorization Middleware
+router.use((req, res, next) => {
+    if (req.session.loggedIn) {
+        next()
+    } else {    
+        console.log("redirecting - user not logged in")
+        res.redirect("/user/login");
+    }
+})
+
 
 //-------------------------------------------
 // Routes
@@ -31,7 +44,8 @@ router.get("/new", (req, res) => {
 
 // create route
 router.post("/", (req, res) => {
-    // check if the readyToEat property should be true or false
+    // check if the extinct property should be true or false
+    // make life expectancy a number
     req.body.extinct = req.body.extinct === "on" ? true : false
     req.body.lifeExpectancy = parseInt(req.body.lifeExpectancy)
     console.log("req body:", req.body)
