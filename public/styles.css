@@ -11,7 +11,7 @@ header {
 fieldset {
     border-width: 5px;
     border-color: #9b4dca;
-    margin: 5% 30% 5% 30%;
+    margin: 5% 32% 5% 32%;
 }
 label {
     text-align: left;
@@ -20,4 +20,14 @@ label {
 
 input {
     text-align: left;
+}
+
+ul {
+    text-align: left;
+}
+
+li {
+    list-style-type: none;
+    padding: 0 1rem 0 2rem;
+    display: inline;
 }

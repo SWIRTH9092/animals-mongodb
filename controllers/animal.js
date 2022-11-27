@@ -41,6 +41,34 @@ router.post("/", (req, res) => {
         res.redirect("/animals")
     })
 })
+
+
+// Edit Route
+router.get("/:id/edit", (req,res) => {
+    const id = req.params.id
+    Animal.findById(id)
+    .then((animal) => {
+        res.render("animals/edit.ejs", { animal } )
+    })
+    .catch (err => console.log(eff))
+})
+
+// Update Route
+router.put ("/:id", (req, res) => {
+    // get the id from the params
+    const id = req.params.id
+
+    // check if extinct should be true or false
+    req.body.extinct = req.body.extinct === "on" ? true : false;
+    req.body.lifeExpectancy = parseInt(req.body.lifeExpectancy)
+
+    // update the animal
+    Animal.findByIdAndUpdate(id, req.body, {new: true}, (err, animal)  => {
+        // redirect use back to main page when animal
+        res.redirect("/animals")
+    })
+})
+
 //  get a show route
 router.get("/:id", (req, res) => {
     // get the id from the params
