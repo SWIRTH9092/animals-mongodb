@@ -23,6 +23,24 @@ router.get("/", (req, res) => {
         .catch(err => console.log(err))
 })
 
+// new route
+router.get("/new", (req, res) => {
+    res.render("animals/new.ejs")
+})
+
+
+// create route
+router.post("/", (req, res) => {
+    // check if the readyToEat property should be true or false
+    req.body.extinct = req.body.extinct === "on" ? true : false
+    req.body.lifeExpectancy = parseInt(req.body.lifeExpectancy)
+    console.log("req body:", req.body)
+    // create the new animal
+    Animal.create(req.body, (err, animal) => {
+        // redirect the user back to the main species page after species created
+        res.redirect("/animals")
+    })
+})
 //  get a show route
 router.get("/:id", (req, res) => {
     // get the id from the params
@@ -36,15 +54,4 @@ router.get("/:id", (req, res) => {
         .catch(err => console.log(err))
     })
 
-
-        // app.get('/fruits/:id', (req, res)=>{
-
-            // Go and get fruit from the database
-        //     Fruit.findById(req.params.id)
-        //     .then((fruit)=> {
-        //         res.json(fruit)
-        //     })
-        // })
-// })
-
-module.exports = router
+    module.exports = router
