@@ -37,7 +37,6 @@ router.get("/login", (req, res) => {
 
 router.post ("/login", (req, res) => {
     // get the data from the request body
-    console.log("req.body,", req.body) 
     const { username, password } = req.body;
     User.findOne ({ username }, (err, user) => {
         if (!user) {
@@ -45,12 +44,10 @@ router.post ("/login", (req, res) => {
         } else {
             //check to see if password matches
             const result = bcrypt.compareSync(password, user.password);
-            console.log("result", result)
             if (result) {
                 req.session.username = username;
                 req.session.loggedIn = true
                 res.redirect("/animals")
-                console.log("redirecting")
             } else {
                 res.send("wrong password");
             }
